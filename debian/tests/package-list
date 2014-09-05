@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+exec 2>&1
+
+for ruby in $(ruby -rruby_debian_dev -e 'puts RubyDebianDev::SUPPORTED_RUBY_VERSIONS.keys'); do
+  set -x
+
+  # a gem from the "default gems"
+  $ruby -e 'gem "rdoc"'
+
+  # an architecture independent gem, installed by this test dependencies
+  $ruby -e 'gem "magic"'
+
+  # an architecture specific gem, installed by this test dependencies
+  $ruby -e 'gem "ffi"'
+
+  set +x
+done
+
