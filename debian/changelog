@@ -1,3 +1,37 @@
+rubygems-integration (1.11) unstable; urgency=medium
+
+  [ Cédric Boutillier ]
+  * Use https:// in Vcs-* fields
+  * Run wrap-and-sort on packaging files
+
+  [ Christian Hofstaedtler ]
+  * Bump Standards-Version to 3.9.8 (no changes needed)
+  * Bump debhelper compat level to 10
+
+ -- Christian Hofstaedtler <zeha@debian.org>  Sun, 18 Dec 2016 17:43:10 +0000
+
+rubygems-integration (1.10) unstable; urgency=medium
+
+  * Fix overlay incompatibility starting with Ruby 2.1.
+    Thanks to Gustavo Machado Campagnani Gama <nsn.igenesis@gmail.com>
+    (Closes: #783972)
+  * Stop installing compatibility symlink for ruby2.0
+
+ -- Christian Hofstaedtler <zeha@debian.org>  Sat, 19 Dec 2015 01:47:10 +0000
+
+rubygems-integration (1.9) unstable; urgency=medium
+
+  * Include /usr/lib/$(triplet)/rubygems-integration/$(api_version) in the
+    Rubygems path. This might be used in the future to make Ruby packages
+    support multiarch.
+  * debian/tests/control: run specs against installed package.
+  * Add workaround for Ruby 2.2 because gem2deb < 0.18.2 installed
+    gemspecs to directories named after the short Ruby version (2.2) instead
+    of the API_VERSION (2.2.0). There was already a similar workaround for
+    Ruby 2.1, so this should have been fixed a long time ago.
+
+ -- Antonio Terceiro <terceiro@debian.org>  Wed, 17 Jun 2015 19:13:10 -0300
+
 rubygems-integration (1.8pexip1) pexip; urgency=low
 
   * Prepare Pexip packaging
